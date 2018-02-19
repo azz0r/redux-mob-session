@@ -1,6 +1,5 @@
-import reducers from "../reducers/index"
+import reducers from "./reducers/index"
 import { createStore, compose } from "redux"
-import thunkMiddleware from "redux-thunk"
 
 const storeEnhancer = compose(
   typeof window === "object" && typeof window.devToolsExtension !== "undefined"
