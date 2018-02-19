@@ -16,3 +16,11 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+header {
+	margin-bottom: 1rem;
+}
+
+hr {
+  margin: 2rem;
+}

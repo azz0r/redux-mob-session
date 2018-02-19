@@ -1,5 +1,4 @@
 import { START_GAME, STOP_GAME, RESET } from "./types"
-import chalk from "chalk"
 
 export function startGame() {
   console.log("Action", "startGame")

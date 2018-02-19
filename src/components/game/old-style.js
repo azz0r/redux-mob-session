@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import chalk from "chalk"
+import { compose } from "recompose"
 
 import { startGame, stopGame } from "../../actions/game"
 
 import Started from "./started"
 import Stopped from "./stopped"
+import buttonTitle from "../../selector/buttonTitle"
 
 class OldStyle extends Component {
   onSetStarted = () => {
@@ -22,24 +23,31 @@ class OldStyle extends Component {
   }
 
   render() {
-    const { started } = this.props
+    const { started, buttonTitle } = this.props
 
     if (started) {
-      return <Started stopGame={this.onSetStopped} />
+      return <Started buttonTitle={buttonTitle} stopGame={this.onSetStopped} />
     } else {
-      return <Stopped startGame={this.onSetStarted} />
+      return <Stopped buttonTitle={buttonTitle} startGame={this.onSetStarted} />
     }
   }
 }
 
 OldStyle.propTypes = {
   started: PropTypes.bool,
+  buttonTitle: PropTypes.string,
 }
 
 OldStyle.defaultProps = {
   started: false,
+  buttonTitle: "DEFAULT BUTTON TITLE",
 }
 
-export default connect(state => ({
-  started: state.game.started,
-}))(OldStyle)
+const enhance = compose(
+  connect(state => ({
+    started: state.game.started,
+  })),
+  buttonTitle,
+)
+
+export default enhance(OldStyle)

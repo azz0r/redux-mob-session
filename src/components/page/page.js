@@ -1,14 +1,17 @@
 import React from "react"
 
-import GameName from "../game/name"
-import GameStarted from "../game/started"
+import Container from "../game/started.container"
+import OldStyle from "../game/old-style"
 
 import "./page.css"
 
 const Page = () => (
   <section className="Page">
-    <GameName />
-    <GameStarted />
+    <header>Container</header>
+    <Container />
+    <hr />
+    <header>Old Style Component</header>
+    <OldStyle />
   </section>
 )
 
