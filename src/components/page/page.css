@@ -1,0 +1,18 @@
+/*skin */
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+	background-color: #222;
+  color: white;
+}
+
+/* structure */
+body {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
