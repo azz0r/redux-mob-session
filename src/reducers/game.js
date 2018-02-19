@@ -8,7 +8,11 @@ const defaultAction = {
   payload: null,
 }
 
-export default (state = defaultState, action = defaultAction) => {
+export default (receivedState = defaultState, action = defaultAction) => {
+  console.log("Game Reducer", "receivedState", receivedState)
+  // important we dont mutate receivedState directly
+  let state = Object.assign({}, receivedState)
+
   switch (action.type) {
     case "RESET":
       state = defaultState
@@ -22,5 +26,7 @@ export default (state = defaultState, action = defaultAction) => {
     default:
       break
   }
+
+  console.log("Game Reducer", "finalState", state)
   return state
 }
